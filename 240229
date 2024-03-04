@@ -1,0 +1,31 @@
+namespace _11210312_0229
+{
+    class CCircle
+    {
+        public int vadius;
+        public float pi;
+        public string color;
+        public float Area()
+        { return (vadius * vadius * pi); }        
+       
+        
+    }     
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            CCircle c1, c2;
+            c1 = new CCircle();
+            c2 = new CCircle();
+            c1.vadius = 6;
+            c2.vadius = 1;
+            c1.pi = 3.14f;
+            c2.pi = 3.14f;
+            c1.color = "red";
+            c2.color = "blue";
+            Console.WriteLine("c1圓面積=" + c1.Area()+",顏色"+c1.color);
+            Console.WriteLine("c2圓面積="+c2.Area() +",顏色"+ c2.color);
+            Console.Read();
+        }
+    }
+}
