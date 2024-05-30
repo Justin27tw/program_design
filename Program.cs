@@ -1,53 +1,117 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-namespace _0314
-{//1. 1.定義一個梯形CTrapezoid類別
- //2.在類別內請備妥所需設定初值的建構元兩個，
- //其一為能給定預設梯形(上底為1下底為2高為2)的建構元，但初值設定請使用呼叫另一建構元的方式執行
- //3.產生兩個梯形，一個是使用預設梯形，一個是給定梯形的上底為4下底為8高為3  ，並分別輸出兩個梯形面積
-    class CTrapezpid
+/*
+1.介面Math，裡面定義add()+, sub()-,mul()x.div()/四個抽象方法
+2.增加一個AdvanceMath介面，這介面定義了3個方法 分別是
+取餘數  mod(int a ,int b) 
+階層 fac(int a)
+和次方pow(int a, int b)
+3.再宣告一個介面show_ans   主要去定義一個抽象方法 show()；使得介面Math去繼承這個介面
+4.Compute類別透過實作Math與AdvanceMath來處理兩個整數的四則運算以及餘數等運算能力
+ */
+namespace _0530hw
+{   
+    interface IShow_ans
     {
-        int upline;
-        int dnline;
-        int height;
         
-        
-
-      
-        public CTrapezpid():this(1,2,2)
-        {
-          
-        }
-        public CTrapezpid(int u ,int d, int h)
-        {
-            upline = u;
-            dnline = d;
-            height = h;
-        }
-        public int area() 
-        {return (upline + dnline) * height / 2; }
+        void Show();
     }
-    class Program
+    interface IMath:IShow_ans
+    {
+        
+        int add(int x,int y);//+
+        int sub(int x,int y);//-
+        int mul(int x,int y);//乘
+        double div(int x,int y);//除        
+    }
+    interface IAdvanceMath
+    {
+        int mod(int x, int y);//餘數
+        int fac(int x);//n!階層 ex: n=5 5*4*3*2*1
+        double pow(int x, int y);//次方
+        
+    }
+    class Compute : IMath, IAdvanceMath
+    {
+        int add_1;
+        int sub_1;
+        int mul_1;
+        double div_1;
+        int mod_1;
+        int fac_1;
+        int pow_1;
+        int total;
+        public int add(int x, int y)
+            {
+                add_1 = x + y;
+                return add_1;
+            }
+            public int sub(int x, int y)
+            {
+                sub_1 = x - y;
+                return sub_1; 
+            }
+            public int mul(int x, int y)
+            {
+                mul_1 = x*y;
+                return mul_1;
+            }
+            public double div(int x, int y)
+            {
+                div_1 = x / y;
+                return div_1;
+            }
+            public int mod(int x, int y)
+            {   
+                mod_1 = x%y;
+                return mod_1; 
+            }
+            public int fac(int x)//ex :x=5
+            { 
+                total = x;  
+                for (int i = 1; i < x; i++)
+                { total *= i; }
+                return total;
+            }
+            public double pow(int x, int y)
+            {
+                pow_1 = x;
+                for (int i = 1; i < y; i++)
+                {
+                    pow_1 *= x;
+                }
+            return pow_1;
+            }
+        public void  Show()
+        { Console.WriteLine("加法="+add_1+"\n"+"減法="+sub_1+"\n"+"乘法="+mul_1+"\n"+"除法="+div_1+"\n"+"餘數="+mod_1+"\n"+"階層="+total+"\n"+"次方="+pow_1+"\n"); }
+        
+    }
+
+    internal class Program
     {
         static void Main(string[] args)
-        {
-            CTrapezpid z1, z2;
-            z1 = new CTrapezpid();
-            z2 = new CTrapezpid(4, 8, 3);
-
-
+        {Compute cp1 = new Compute();
             
-                Console.WriteLine("第1個梯形面積為" + z1.area());
-                Console.WriteLine("第2個梯形面積為"+z2.area());
-            
+                Console.Write("請輸入第1個數字");
+                int first_num = Convert.ToInt32(Console.ReadLine());
+                Console.Write("請輸入第2個數字");
+                int second_num = Convert.ToInt32(Console.ReadLine());
+           
+                int add_result = cp1.add(first_num, second_num);
+                int sub_result = cp1.sub(first_num, second_num);
+                int mul_result=cp1.mul(first_num, second_num);
+                double div_result=cp1.div(first_num, second_num);
+                int mod_result=cp1.mod(first_num, second_num);
+                int fac_result = cp1.fac(first_num);
+                double pow_result=cp1.pow(first_num, second_num);
+
+            cp1.Show();
             Console.Read();
             
-
-
         }
     }
 }
