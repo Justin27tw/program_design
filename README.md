@@ -5,3 +5,4 @@
 
 程式討論群組6/12更新： 
 [https://discord.gg/H3HDfqeP](https://discord.gg/2UJGCxd5)
+目前成員人數:1
