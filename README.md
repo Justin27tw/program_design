@@ -3,5 +3,5 @@
 歡迎來跟我討論 C#
 勿全部抄襲
 
-程式討論群組： 
-https://discord.gg/H3HDfqeP
+程式討論群組6/12更新： 
+[https://discord.gg/H3HDfqeP](https://discord.gg/2UJGCxd5)
