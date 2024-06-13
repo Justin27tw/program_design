@@ -4,5 +4,5 @@
 勿全部抄襲
 
 學習討論群組6/13更新： 
-https://discord.gg/6FYsEwBc
+[https://discord.gg/6FYsEwBc](https://discord.gg/HgRg5sWj)
 目前成員人數:1
